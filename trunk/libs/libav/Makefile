@@ -65,7 +65,6 @@ configure:
 		--disable-ffmpeg \
 		--disable-ffplay \
 		--disable-ffprobe \
-		--disable-ffserver \
 		--disable-hwaccels \
 		--disable-dxva2 \
 		--disable-indevs \
