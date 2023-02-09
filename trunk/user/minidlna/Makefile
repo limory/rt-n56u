@@ -1,4 +1,5 @@
-SRC_NAME=minidlna-1.2.1
+#SRC_NAME=minidlna-1.2.1
+SRC_NAME=minidlna-1.3.2
 SRC_URL=https://sourceforge.net/projects/minidlna/files/minidlna/1.2.1/minidlna-1.2.1.tar.gz 
 
 DLNA_CFLAGS  += -ffunction-sections -fdata-sections
@@ -12,7 +13,7 @@ DLNA_LIBS += -ldl -lm -lpthread -lz -lexif -ljpeg -lsqlite3 -lid3tag -lFLAC -lvo
 
 THISDIR = $(shell pwd)
 
-all: download_test extract_test config_test
+all: extract_test config_test
 	$(MAKE) -j$(HOST_NCPU) -C $(SRC_NAME)
 
 download_test:
@@ -23,7 +24,7 @@ download_test:
 extract_test:
 	( if [ ! -d $(SRC_NAME) ]; then \
 		tar xzf $(SRC_NAME).tar.gz; \
-		patch -d $(SRC_NAME) -p1 -i ../minidlna-orig.patch; \
+	    ####patch -d $(SRC_NAME) -p1 -i ../minidlna-orig.patch; \
 		$(SRC_NAME)/autogen.sh; \
 	fi )
 
