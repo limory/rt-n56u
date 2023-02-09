@@ -9,7 +9,7 @@ DLNA_CFLAGS  += -I$(STAGEDIR)/include
 DLNA_LDFLAGS += -Wl,--gc-sections
 DLNA_LDFLAGS += -L$(STAGEDIR)/lib
 
-DLNA_LIBS += -ldl -lm -lpthread -lz -lexif -ljpeg -lsqlite3 -lid3tag -lFLAC -lvorbis -logg -lavformat -lavcodec -lavutil
+DLNA_LIBS += -ldl -lm -lpthread -lz -lexif -ljpeg -lsqlite3 -lid3tag -lFLAC -lvorbis -logg -liconv -lavformat -lavcodec -lavutil
 
 THISDIR = $(shell pwd)
 
@@ -44,7 +44,6 @@ configure:
 		--disable-nls \
 		--enable-asus \
 		--enable-tivo \
-		--with-libiconv-prefix=$(STAGEDIR) \
 		--with-log-path=/mnt/minidlna \
 		--with-db-path=/mnt/minidlna \
 		--with-os-name="Linux" \
