@@ -1,4 +1,5 @@
-SRC_NAME_NEW = ffmpeg-0.11.x
+#SRC_NAME_NEW = ffmpeg-0.11.x
+SRC_NAME_NEW = ffmpeg-4.3.5
 SRC_NAME_OLD = ffmpeg-0.6.x
 
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW),y)
@@ -16,7 +17,8 @@ DEMUXERS_CONFIG=--enable-demuxer=aac --enable-demuxer=ac3 --enable-demuxer=asf \
                 --enable-demuxer=flac --enable-demuxer=flv --enable-demuxer=h264 \
                 --enable-demuxer=m4v --enable-demuxer=matroska --enable-demuxer=mov \
                 --enable-demuxer=mp3 --enable-demuxer=mpegps --enable-demuxer=mpegts \
-                --enable-demuxer=mpegvideo --enable-demuxer=ogg --enable-demuxer=wav --enable-demuxer=mjpeg
+                --enable-demuxer=mpegvideo --enable-demuxer=ogg --enable-demuxer=wav \
+		--enable-demuxer=mjpeg --enable-demuxer=webm
 
 DECODERS_CONFIG=
 
@@ -39,7 +41,7 @@ config_test:
 	fi ) 
 
 configure:
-	( cd $(SRC_NAME) ; \
+	(tar -xzf $(SRC_NAME).tar.gz && cd $(SRC_NAME) ; \
 	./configure \
 		--prefix=$(STAGEDIR) \
 		--cross-prefix=$(CROSS_COMPILE) \
