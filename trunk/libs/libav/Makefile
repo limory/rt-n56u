@@ -16,7 +16,7 @@ DEMUXERS_CONFIG=--enable-demuxer=aac --enable-demuxer=ac3 --enable-demuxer=asf \
                 --enable-demuxer=flac --enable-demuxer=flv --enable-demuxer=h264 \
                 --enable-demuxer=m4v --enable-demuxer=matroska --enable-demuxer=mov \
                 --enable-demuxer=mp3 --enable-demuxer=mpegps --enable-demuxer=mpegts \
-                --enable-demuxer=mpegvideo --enable-demuxer=ogg --enable-demuxer=wav
+                --enable-demuxer=mpegvideo --enable-demuxer=ogg --enable-demuxer=wav --enable-demuxer=mjpeg
 
 DECODERS_CONFIG=
 
