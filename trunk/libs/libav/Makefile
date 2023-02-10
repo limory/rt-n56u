@@ -1,5 +1,6 @@
 #SRC_NAME_NEW = ffmpeg-0.11.x
-SRC_NAME_NEW = ffmpeg-4.3.5
+#SRC_NAME_NEW = ffmpeg-4.3.5
+SRC_NAME_NEW = ffmpeg-5.1.2
 SRC_NAME_OLD = ffmpeg-0.6.x
 
 ifeq ($(CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW),y)
@@ -84,7 +85,9 @@ configure:
 		$(PROTOCOLS_CONFIG) \
 		$(PARSERS_CONFIG) \
 		$(DECODERS_CONFIG) \
-		$(DEMUXERS_CONFIG) ; \
+		$(DEMUXERS_CONFIG) \
+		--pkg-config=/usr/bin/pkg-config \
+		--cpu=mips32r2 ; \
 	)
 
 clean:
