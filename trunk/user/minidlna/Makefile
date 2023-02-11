@@ -34,10 +34,9 @@ config_test:
 	else \
 		make configure && touch config_done; \
 	fi )
-
+###ac_cv_lib_avformat_av_open_input_file=yes \
 configure:
 	( cd $(SRC_NAME) ; \
-	ac_cv_lib_avformat_av_open_input_file=yes \
 	CFLAGS="$(DLNA_CFLAGS)" LDFLAGS="$(DLNA_LDFLAGS)" LIBS="$(DLNA_LIBS)" \
 	./configure \
 		--prefix=/usr \
