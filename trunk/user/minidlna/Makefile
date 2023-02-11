@@ -1,4 +1,5 @@
 #SRC_NAME=minidlna-1.2.1
+###ac_cv_lib_avformat_av_open_input_file=yes \
 SRC_NAME=minidlna-1.3.2
 SRC_URL=https://sourceforge.net/projects/minidlna/files/minidlna/1.2.1/minidlna-1.2.1.tar.gz 
 
@@ -34,7 +35,7 @@ config_test:
 	else \
 		make configure && touch config_done; \
 	fi )
-###ac_cv_lib_avformat_av_open_input_file=yes \
+
 configure:
 	( cd $(SRC_NAME) ; \
 	CFLAGS="$(DLNA_CFLAGS)" LDFLAGS="$(DLNA_LDFLAGS)" LIBS="$(DLNA_LIBS)" \
