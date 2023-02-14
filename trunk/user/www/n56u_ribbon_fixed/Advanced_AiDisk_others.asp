@@ -453,8 +453,7 @@ function done_validating(action){
                                             <td>
                                                 <select name="optw_enable" class="input">
                                                     <option value="0" <% nvram_match_x("", "optw_enable", "0", "selected"); %>><#checkbox_No#></option>
-                                                    <option value="1" <% nvram_match_x("", "optw_enable", "1", "selected"); %>>Optware (legacy)</option>
-                                                    <option value="2" <% nvram_match_x("", "optw_enable", "2", "selected"); %>>Entware</option>
+                                                    <option value="1" <% nvram_match_x("", "optw_enable", "1", "selected"); %>>Entware</option>
                                                 </select>
                                             </td>
                                         </tr>
