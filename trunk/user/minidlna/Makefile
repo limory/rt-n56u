@@ -1,7 +1,7 @@
 #SRC_NAME=minidlna-1.2.1
 ###ac_cv_lib_avformat_av_open_input_file=yes
 ###patch -d $(SRC_NAME) -p1 -i ../minidlna-orig.patch
-SRC_NAME=minidlna-1.3.2
+SRC_NAME=minidlna-1.3.2-modify
 SRC_URL=https://sourceforge.net/projects/minidlna/files/minidlna/1.2.1/minidlna-1.2.1.tar.gz 
 
 DLNA_CFLAGS  += -ffunction-sections -fdata-sections
