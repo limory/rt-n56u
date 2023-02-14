@@ -460,7 +460,7 @@ function done_validating(action){
                                         </tr>
                                         <tr id="row_max_user">
                                             <th>
-                                                <a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,17,1);"><#ShareNode_MaximumLoginUser_itemname#></a>
+                                                <a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,17,2);"><#ShareNode_MaximumLoginUser_itemname#></a>
                                             </th>
                                             <td>
                                                 <input type="text" name="st_max_user" class="input" maxlength="2" size="5" value="<% nvram_get_x("", "st_max_user"); %>"/>
