@@ -455,7 +455,7 @@ function done_validating(action){
                                                     <option value="0" <% nvram_match_x("", "optw_enable", "0", "selected"); %>><#checkbox_No#></option>
                                                     <option value="1" <% nvram_match_x("", "optw_enable", "1", "selected"); %>>Entware</option>
                                                 </select>
-						&nbsp;<span style="color:#888">* need reboot</span>
+						&nbsp;<span style="color:#888">* hotplug|reboot</span>
                                             </td>
                                         </tr>
                                         <tr id="row_max_user">
