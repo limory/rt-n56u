@@ -771,7 +771,7 @@ int create_mp_link(char *search_dir, char *link_path, int force_first_valid)
 #if defined (APP_MINIDLNA)
 int is_dms_support(void)
 {
-	return check_if_file_exist("/usr/bin/minidlnad");
+	return (check_if_file_exist("/opt/sbin/minidlnad")) ? 1 : (check_if_file_exist("/usr/bin/minidlnad"));
 }
 
 int is_dms_run(void)
@@ -874,19 +874,15 @@ void run_dms(int force_rescan)
 	char *link_path = "/mnt/minidlna";
 	char *conf_path = "/etc/minidlna.conf";
 	char *dest_dir = ".dms";
-	char *minidlna_argv[] = {
-		"/usr/bin/minidlnad",
-		"-f", conf_path,
-		"-s", NULL,
-		NULL,	/* -U */
-		NULL
-	};
 
 	if (!nvram_match("apps_dms", "1"))
 		return;
 
 	if (!is_dms_support())
 		return;
+	
+	char *minidlna_bin = (check_if_file_exist("/opt/sbin/minidlnad")) ? "/opt/sbin/minidlnad" : "/usr/bin/minidlnad";
+	
 
 	if (is_dms_run())
 		return;
@@ -904,6 +900,15 @@ void run_dms(int force_rescan)
 	update_minidlna_conf(link_path, conf_path);
 
 	ether_atoe(nvram_safe_get("il0macaddr"), mac_bin);
+	
+	char *minidlna_argv[] = {
+		minidlna_bin,
+		"-f", conf_path,
+		"-s", NULL,
+		NULL,	/* -U */
+		NULL
+	};
+	
 	minidlna_argv[4] = ether_etoa3(mac_bin, mac_str);
 
 	db_rescan_mode = nvram_get_int("dlna_rescan");
