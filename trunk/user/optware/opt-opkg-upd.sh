@@ -8,6 +8,7 @@ if ! grep -q /opt /proc/mounts ; then
 	exit 1
 fi
 
+# extend path to /opt
 export PATH=/opt/sbin:/opt/bin:/usr/sbin:/usr/bin:/sbin:/bin
 INSTALLER=/tmp/entware_installer.sh
 
