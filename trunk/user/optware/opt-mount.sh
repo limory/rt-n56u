@@ -1,7 +1,7 @@
 #!/bin/sh
 
 self_name="opt-mount.sh"
-
+logger -t "${self_name}" "运行了99999999999999999"
 # check params
 [ -z "$1" ] || [ -z "$2" ] && exit 1
 
@@ -9,7 +9,7 @@ mtd_device=`echo "$1" | egrep '^/dev/mtd|^/dev/ubi'`
 
 if [ -z "$mtd_device" ] ; then
 	optw_enable=`nvram get optw_enable`
-	[ "$optw_enable" != "1" -a "$optw_enable" != "2" ] && exit 0
+	[ "$optw_enable" != "1" ] && exit 0
 fi
 
 # check /opt already mounted
