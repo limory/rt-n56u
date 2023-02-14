@@ -200,7 +200,7 @@ if [ -z "$mtd_device" ] ; then
 	exit 0
 fi
 
-logger -t "${self_name}" "call /opt/etc/init.d"
+logger -t "${self_name}" "call /opt/etc/init.d" "启动USB已安装的服务(S***开头的服务)"
 
 # extend path to /opt
 export PATH=/opt/sbin:/opt/bin:/usr/sbin:/usr/bin:/sbin:/bin
