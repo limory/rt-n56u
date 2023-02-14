@@ -1,7 +1,7 @@
 #!/bin/sh
 
 self_name="opt-start.sh"
-logger -t "${self_name}" "运行了8888888888888888888"
+logger -t "${self_name}" "运行了99999999999999999999"
 optw_enable=`nvram get optw_enable`
 [ "$optw_enable" != "1" ] && exit 0
 
