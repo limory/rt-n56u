@@ -449,7 +449,7 @@ function done_validating(action){
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,17,1);"><#StorageAllowOptw#></a></th>
+                                            <th><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,17,13);"><#StorageAllowOptw#></a></th>
                                             <td>
                                                 <select name="optw_enable" class="input">
                                                     <option value="0" <% nvram_match_x("", "optw_enable", "0", "selected"); %>><#checkbox_No#></option>
@@ -460,7 +460,7 @@ function done_validating(action){
                                         </tr>
                                         <tr id="row_max_user">
                                             <th>
-                                                <a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,17,2);"><#ShareNode_MaximumLoginUser_itemname#></a>
+                                                <a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,17,1);"><#ShareNode_MaximumLoginUser_itemname#></a>
                                             </th>
                                             <td>
                                                 <input type="text" name="st_max_user" class="input" maxlength="2" size="5" value="<% nvram_get_x("", "st_max_user"); %>"/>
