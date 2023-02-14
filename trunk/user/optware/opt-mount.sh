@@ -2,7 +2,7 @@
 
 self_name="opt-mount.sh"
 
-logger -t "${self_name}" "运行了99999999999999999"
+logger -t "${self_name}" "运行了8888888888888888"
 
 # check params
 [ -z "$1" ] || [ -z "$2" ] && exit 1
