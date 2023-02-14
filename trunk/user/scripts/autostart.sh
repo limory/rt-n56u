@@ -1,5 +1,7 @@
 #!/bin/sh
 #nvram set ntp_ready=0
+logger -t "/user/scripts/autostart.sh" "运行了10101010101010101010"
+
 if [ $(nvram get sdns_enable) = 1 ] ; then
 logger -t "自动启动" "正在启动SmartDns"
 /usr/bin/smartdns.sh start
