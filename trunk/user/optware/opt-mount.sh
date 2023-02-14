@@ -1,24 +1,32 @@
 #!/bin/sh
 
 self_name="opt-mount.sh"
+
 logger -t "${self_name}" "运行了99999999999999999"
+
 # check params
 [ -z "$1" ] || [ -z "$2" ] && exit 1
 
+
 mtd_device=`echo "$1" | egrep '^/dev/mtd|^/dev/ubi'`
+
 
 if [ -z "$mtd_device" ] ; then
 	optw_enable=`nvram get optw_enable`
 	[ "$optw_enable" != "1" ] && exit 0
 fi
 
-# check /opt already mounted
+
+# check /opt already mounted then exit
 mountpoint -q /opt && exit 0
+
 
 # check dir "opt" exist on the drive root
 [ ! -d "$2/opt" ] && exit 0
 
-logger -t "${self_name}" "started [$@]"
+
+logger -t "${self_name}" "starting... [$@] "
+
 
 # mount /opt (bind only)
 mount -o bind "$2/opt" /opt
@@ -27,10 +35,13 @@ if [ $? -ne 0 ] ; then
 	exit 1
 fi
 
-# check dirs exist
-for i in "bin" "etc/init.d" "home/admin" "lib" "sbin" "var/log" ; do
-	[ ! -d /opt/${i} ] && mkdir -p /opt/${i}
-done
+logger -t "${self_name}" "已挂载USB $2/opt 到系统根目录/opt"
+
+# 如果不存在/opt/bin/opkg二进制文件，则启动安装sh
+if [ ! -f /opt/bin/opkg ] ; then
+	/usr/bin/opt-opkg-upd.sh
+	exit 1
+fi
 
 # check opt profile exist
 if [ ! -f /opt/etc/profile ] ; then
@@ -43,31 +54,12 @@ if [ "\$PS1" ] ; then
     export LANG=en_US.UTF-8
     export TMP=/opt/tmp
     export TEMP=/opt/tmp
-
-    alias mc='mc -c'
-
+ 
 fi;
 
 EOF
 fi
 
-# expand home to opt
-if [ -d /opt/home/admin ] ; then
-	rm -f /home/admin
-	ln -sf /opt/home/admin /home/admin
-	chmod 700 /opt/home/admin
-fi
-
-# prepare /etc/localtime
-ln -sf /opt/etc/localtime /etc/localtime
-
-# prepare ssh authorized_keys
-if [ -f /etc/storage/authorized_keys ] && [ ! -f /opt/home/admin/.ssh/authorized_keys ] ; then
-	mkdir -p /opt/home/admin/.ssh
-	cp -f /etc/storage/authorized_keys /opt/home/admin/.ssh
-	chmod 700 /opt/home/admin/.ssh
-	chmod 600 /opt/home/admin/.ssh/authorized_keys
-fi
 
 # check swap file exist
 if [ -z "$mtd_device" ] && [ -f /opt/.swap ] ; then
