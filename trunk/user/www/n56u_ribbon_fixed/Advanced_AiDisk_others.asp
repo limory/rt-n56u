@@ -449,12 +449,13 @@ function done_validating(action){
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th><#StorageAllowOptw#></th>
+                                            <th><a class="help_tooltip" href="javascript:void(0);" onmouseover="openTooltip(this,17,1);"><#StorageAllowOptw#></a></th>
                                             <td>
                                                 <select name="optw_enable" class="input">
                                                     <option value="0" <% nvram_match_x("", "optw_enable", "0", "selected"); %>><#checkbox_No#></option>
                                                     <option value="1" <% nvram_match_x("", "optw_enable", "1", "selected"); %>>Entware</option>
                                                 </select>
+						&nbsp;<span style="color:#888">* need reboot</span>
                                             </td>
                                         </tr>
                                         <tr id="row_max_user">
