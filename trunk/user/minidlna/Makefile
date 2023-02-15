@@ -26,7 +26,7 @@ download_test:
 
 extract_test:
 	( if [ ! -d $(SRC_NAME) ]; then \
-		tar xzf $(SRC_NAME)-modify.tar.gz; \
+		tar xzf $(SRC_NAME).tar.gz; \
 		$(SRC_NAME)/autogen.sh; \
 	fi )
 
