@@ -2,7 +2,7 @@
 
 self_name="opt-mount.sh"
 
-logger -t "${self_name}" "运行了8888888888888888"
+logger -t "${self_name}" "开始运行  /opt检测是否挂载?安装?启动/opt/etc/init.d服务?"
 
 # check params
 [ -z "$1" ] || [ -z "$2" ] && exit 1
