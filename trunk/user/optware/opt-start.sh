@@ -1,7 +1,7 @@
 #!/bin/sh
 
 self_name="opt-start.sh"
-logger -t "${self_name}" "开始运行  Entware检测是否安装或启动服务"
+logger -t "${self_name}" "开始运行  Entware检测是否安装?启动/opt/etc/init.d服务?"
 optw_enable=`nvram get optw_enable`
 [ "$optw_enable" != "1" ] && exit 0
 
