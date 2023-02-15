@@ -849,17 +849,17 @@ void update_minidlna_conf(const char *link_path, const char *conf_path)
 	fprintf(fp, "strict_dlna=%s\n", "no");
 	fprintf(fp, "model_number=%d\n", 1);
 	fprintf(fp, "max_connections=%d\n", 20);
-	fprintf(fp, "icon=%d\n", "logo.png,7f7f7f");
-	fprintf(fp, "bgcolor=%d\n", "666666,999999");
-	fprintf(fp, "enable_thumbnail=%d\n", "yes");
+	fprintf(fp, "icon=%s\n", "logo.png,7f7f7f");
+	fprintf(fp, "bgcolor=%s\n", "666666,999999");
+	fprintf(fp, "enable_thumbnail=%s\n", "yes");
 	fprintf(fp, "thumbnail_width=%d\n", 160);
 	fprintf(fp, "thumbnail_quality=%d\n", 8);
-	fprintf(fp, "enable_thumbnail_filmstrip=%d\n", "yes");
-	fprintf(fp, "#user=%d\n", "limory");
-	fprintf(fp, "#log_level=%d\n", "general,artwork,database,inotify,scanner,metadata,http,ssdp,tivo=warn");
-	fprintf(fp, "#presentation_url=%d\n", "http://www.mylan/index.php");
-	fprintf(fp, "#serial=%d\n", "12345678");
-	fprintf(fp, "#minissdpdsocket=%d\n", "/opt/var/minidlna/minissdpd.sock");
+	fprintf(fp, "enable_thumbnail_filmstrip=%s\n", "yes");
+	fprintf(fp, "#user=%s\n", "limory");
+	fprintf(fp, "#log_level=%s\n", "general,artwork,database,inotify,scanner,metadata,http,ssdp,tivo=warn");
+	fprintf(fp, "#presentation_url=%s\n", "http://www.mylan/index.php");
+	fprintf(fp, "#serial=%s\n", "12345678");
+	fprintf(fp, "#minissdpdsocket=%s\n", "/opt/var/minidlna/minissdpd.sock");
 	fprintf(fp, "#search_limit=%d\n", 0);
 	
 	fclose(fp);
