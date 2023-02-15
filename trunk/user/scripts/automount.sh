@@ -1,5 +1,5 @@
 #!/bin/sh
-logger -t "automount" "/sbin/automount.sh $1    $2"
+logger -t "automount" "开始运行 /sbin/automount.sh $1  $2"
 func_load_module()
 {
 	module_name=$1
