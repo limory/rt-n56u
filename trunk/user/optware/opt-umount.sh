@@ -15,7 +15,6 @@ mountres=`grep ' /opt ' /proc/mounts | grep $1`
 logger -t "${self_name}" "started [$@]"
 
 # try to kill ipkg/opkg (may be running)
-killall -q ipkg
 killall -q opkg
 
 # try to kill mc (may be running)
@@ -34,12 +33,6 @@ if [ -f /opt/.swap ] ; then
 	swapoff /opt/.swap 2>/dev/null
 	[ $? -eq 0 ] && logger -t "${self_name}" "Deactivate swap file /opt/.swap SUCCESS!"
 fi
-
-# restore home
-rm -f /home/admin
-ln -sf /home/root /home/admin
-
-rm -f /etc/localtime
 
 # flush buffers
 sync
