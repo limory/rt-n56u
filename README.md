@@ -1,12 +1,15 @@
+2024-08-26	
+1、更新minidlna版本为最新的3.1.3
+2、更新ss 3.3.4 为  3.3.5	
 2023-02-15
 
-1、更新ffmpeg版本为最新的5.1.2，修改了Makefile的一些编译参数
-2、更新minidlna版本为最新的3.1.2，修改了Makefile的一些编译参数
-3、修改了Advanced_AiDisk_others.asp的ui，增加了entware hover提示，删除了ipkg的安装及ipkg的相关sh，换成entware
-4、修改了opt-mount.sh opt-start.sh automount.sh等一些逻辑代码
-5、取消或更换一些Makefile里的失效的安装源链接
-6、修改了/trunk/user/rc/services_stor.c源代码，增加判断如果挂载了usb且opkg安装了minidlna，则使用opkg的安装路径下的minidlnad，否则使用系统自编译的minidlnad
-7、
+1、更新ffmpeg版本为最新的5.1.2，修改了Makefile的一些编译参数	
+2、更新minidlna版本为最新的3.1.2，修改了Makefile的一些编译参数	
+3、修改了Advanced_AiDisk_others.asp的ui，增加了entware hover提示，删除了ipkg的安装及ipkg的相关sh，换成entware	
+4、修改了opt-mount.sh opt-start.sh automount.sh等一些逻辑代码	
+5、取消或更换一些Makefile里的失效的安装源链接	
+6、修改了/trunk/user/rc/services_stor.c源代码，增加判断如果挂载了usb且opkg安装了minidlna，则使用opkg的安装路径下的minidlnad，否则使用系统自编译的minidlnad	
+
 
 ### 固件说明 ###
 * 默认登陆IP:192.168.2.1 
