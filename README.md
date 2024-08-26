@@ -4,6 +4,8 @@
 
 2、更新ss 3.3.4 为  3.3.5	
 
+3、ss增加判断本地找不到v2ray和trojan可执行文件时调用opkg安装的/opt/bin/v2ray和trojan	
+
 2023-02-15	
 
 1、更新ffmpeg版本为最新的5.1.2，修改了Makefile的一些编译参数	
