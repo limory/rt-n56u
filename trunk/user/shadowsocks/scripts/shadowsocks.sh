@@ -40,8 +40,8 @@ find_bin() {
 	ssr) ret="/usr/bin/ssr-redir" ;;
 	ssr-local) ret="/usr/bin/ssr-local" ;;
 	ssr-server) ret="/usr/bin/ssr-server" ;;
-	v2ray) ret="/usr/bin/v2ray" ;;
-	trojan) ret="/usr/bin/trojan" ;;
+	v2ray) ret=$(test -e /usr/bin/v2ray && echo /usr/bin/v2ray || echo /opt/bin/v2ray) ;;
+	trojan) ret=$(test -e /usr/bin/trojan && echo /usr/bin/trojan || echo /opt/bin/trojan) ;;
 	socks5) ret="/usr/bin/ipt2socks" ;;
 	esac
 	echo $ret
@@ -66,7 +66,7 @@ local type=$stype
 		sed -i 's/\\//g' $config_file
 		;;
 	trojan)
-		tj_bin="/usr/bin/trojan"
+		tj_bin=$(test -e /usr/bin/trojan && echo /usr/bin/trojan || echo /opt/bin/trojan)
 		if [ "$2" = "0" ]; then
 		lua /etc_ro/ss/gentrojanconfig.lua $1 nat 1080 >$trojan_json_file
 		sed -i 's/\\//g' $trojan_json_file
@@ -76,7 +76,7 @@ local type=$stype
 		fi
 		;;
 	v2ray)
-		v2_bin="/usr/bin/v2ray"
+		v2_bin=$(test -e /usr/bin/v2ray && echo /usr/bin/v2ray || echo /opt/bin/v2ray)
 		v2ray_enable=1
 		if [ "$2" = "1" ]; then
 		lua /etc_ro/ss/genv2config.lua $1 udp 1080 >/tmp/v2-ssr-reudp.json
