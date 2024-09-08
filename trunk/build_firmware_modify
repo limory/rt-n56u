@@ -9,6 +9,9 @@ if [ -z "$2" ];then
 		echo "configs/templates/$1.config not found "
 		exit 1
 	fi
+### 如果clone到本地编译 需要删除以下这条注释;
+### 如果在线使用github workflows编译 下面这条多余，注释掉;
+### cp -f configs/templates/$1.config .config 
 fi
 
 ROOTDIR=`pwd`
