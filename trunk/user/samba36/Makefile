@@ -117,15 +117,15 @@ distclean: clean
 	@find $(SRC_NAME) -name config.cache | xargs rm -f
 
 romfs:
-	ifeq ($(CONFIG_FIRMWARE_INCLUDE_SMBD),y)
-		$(ROMFSINST) $(THISDIR)/$(SRC_NAME)/bin/samba_multicall /sbin/smbmulti
-		$(ROMFSINST) -s smbmulti /sbin/smbd
-		$(ROMFSINST) -s smbmulti /sbin/nmbd
-		$(ROMFSINST) -s /sbin/smbmulti /bin/smbpasswd
-		mkdir -p $(ROMFSDIR)/usr/share/samba
-		cp -fP $(THISDIR)/$(SRC_DIR)/codepages/*.dat $(ROMFSDIR)/usr/share/samba
-	else
-		ifeq ($(CONFIG_FIRMWARE_INCLUDE_WINS),y)
-		$(ROMFSINST) $(THISDIR)/$(SRC_NAME)/bin/nmbd /sbin/nmbd
-		endif
-	endif
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_SMBD),y)
+	$(ROMFSINST) $(THISDIR)/$(SRC_NAME)/bin/samba_multicall /sbin/smbmulti
+	$(ROMFSINST) -s smbmulti /sbin/smbd
+	$(ROMFSINST) -s smbmulti /sbin/nmbd
+	$(ROMFSINST) -s /sbin/smbmulti /bin/smbpasswd
+	mkdir -p $(ROMFSDIR)/usr/share/samba
+	cp -fP $(THISDIR)/$(SRC_DIR)/codepages/*.dat $(ROMFSDIR)/usr/share/samba
+else
+ifeq ($(CONFIG_FIRMWARE_INCLUDE_WINS),y)
+	$(ROMFSINST) $(THISDIR)/$(SRC_NAME)/bin/nmbd /sbin/nmbd
+endif
+endif
