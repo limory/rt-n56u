@@ -316,9 +316,9 @@ function showMDHCPList(){
 		code +='</tr>';
 	    }
 		code += '<tr>';
-		code += '<td colspan="3">&nbsp;</td>'
+		code += '<td colspan="3">&nbsp;</td>';
 		code += '<td><button class="btn btn-danger" type="submit" onclick="markGroupMDHCP(this, 64, \' Del \');" name="ManualDHCPList"><i class="icon icon-minus icon-white"></i></button></td>';
-		code += '</tr>'
+		code += '</tr>';
 	}
 	code +='</table>';
 	$("MDHCPList_Block").innerHTML = code;
