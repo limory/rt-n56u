@@ -15,7 +15,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -129,5 +129,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: Padavan-Xiaomi-R3G-minidlna1.3.3-filebrowser-transmission-smartdns-aliddns-zerotier-SSR-v2ray-trojan_2024_09_10
+        name: Padavan-Xiaomi-R3G-minidlna1.3.3-filebrowser-transmission-smartdns-aliddns-zerotier-SSR-v2ray-trojan
         path: /opt/images
